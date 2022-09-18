@@ -29,29 +29,11 @@
 </head>
 
 <body>
-    <div style="position: relative; padding-top: 56.25%;">
-        <iframe id="playerFrame" src=""
+    <div style="position: relative; padding-top: 56.25%;"><iframe
+            src="https://customer-z44n8lqllcqnve2e.cloudflarestream.com/8debbb081f278a4ed35657748f78551b/iframe"
             style="border: none; position: absolute; top: 0; left: 0; height: 100%; width: 100%;"
             allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-            allowfullscreen="true"></iframe>
-    </div>
-
-    <script>
-        let urlParams = "";
-        let streamId = "";
-
-        let queryString = window.location.search;
-
-        if (queryString != null) {
-            urlParams = new URLSearchParams(queryString);
-            streamId = urlParams.get('id');
-        }
-
-
-        let replacement = "https://customer-z44n8lqllcqnve2e.cloudflarestream.com/" + streamId + "/iframe"
-
-        document.getElementById("playerFrame").src = replacement;
-    </script>
+            allowfullscreen="true"></iframe></div>
 </body>
 
 </html>
