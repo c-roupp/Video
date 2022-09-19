@@ -5,4 +5,4 @@
   Referrer-Policy: no-referrer
   Permissions-Policy: document-domain=()
   Content-Security-Policy: frame-src videodelivery.net customer-z44n8lqllcqnve2e.cloudflarestream.com
-  Content-Security-Policy: script-src 'self'; frame-ancestors 'none';
+  Content-Security-Policy: frame-ancestors 'none';
