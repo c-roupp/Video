@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <style>
+        body {
+            background-color: #58585A;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 10px;
+        }
+
+        div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        img {
+            width: 350px;
+            height: 350px;
+        }
+    </style>
+
+
+    <title>Halibut Flats - Video</title>
+</head>
+
+<body>
+
+    <div style="position: relative; padding-top: 56.25%;">
+        <video-js id=vid1 width=600 height=300 class="vjs-default-skin" controls>
+            <source id="vidsource" src="" type="application/x-mpegURL">
+        </video-js>
+        <script src="video.js"></script>
+        <script src="videojs-http-streaming.min.js"></script>
+        <script>
+            var player = videojs('vid1');
+            player.play();
+        </script>
+    </div>
+    <div>
+        <p></p>
+        @2023 by Halibut Flats Research and Development. All rights reserved.
+    </div>
+
+    <script src="https://unpkg.com/browse/@videojs/http-streaming@2.15.1/dist/videojs-http-streaming.min.js"></script>
+
+    <script>
+        let urlParams = "";
+        let streamId = "";
+
+        let queryString = window.location.search;
+
+        if (queryString != null) {
+            urlParams = new URLSearchParams(queryString);
+            streamId = urlParams.get('id');
+        }
+
+
+        let replacement = "https://customer-z44n8lqllcqnve2e.cloudflarestream.com/" + streamId + "/manifest/video.m3u8"
+
+        document.getElementById("vidsource").src = replacement;
+    </script>
+</body>
+
+</html>
