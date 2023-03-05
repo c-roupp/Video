@@ -34,45 +34,49 @@
 
 
     <title>Halibut Flats - Video</title>
+
+    <link href="https://vjs.zencdn.net/8.0.4/video-js.css" rel="stylesheet" />
 </head>
 
 <body>
 
     <div style="position: relative; padding-top: 56.25%;">
-        <video-js id=vid1 width=600 height=300 class="vjs-default-skin" controls>
-            <source id="vidsource" src="" type="application/x-mpegURL">
-        </video-js>
-        <script src="video.js"></script>
-        <script src="videojs-http-streaming.min.js"></script>
-        <script>
-            let urlParams = "";
-            let streamId = "";
+        <video id="my-video" class="video-js" controls preload="auto" width="640" height="264"
+            poster="https://video.halibutflats.net/halibutflatslogo.jpg" data-setup="{}">
 
-            let queryString = window.location.search;
+            <source id="source" src="" type="application/x-mpegURL" />
 
-            if (queryString != null) {
-                urlParams = new URLSearchParams(queryString);
-                streamId = urlParams.get('id');
-            }
+            <p class="vjs-no-js">
+                To view this video please enable JavaScript, and consider upgrading to a
+                web browser that
+                <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+            </p>
+        </video>
 
-            let replacement = "https://customer-z44n8lqllcqnve2e.cloudflarestream.com/" + streamId + "/manifest/video.m3u8"
-
-            document.getElementById("vidsource").src = replacement;
-
-            var player = videojs('vid1');
-            player.play();
-        </script>
     </div>
     <div>
         <p></p>
         @2023 by Halibut Flats Research and Development. All rights reserved.
     </div>
 
-    <script src="https://unpkg.com/browse/@videojs/http-streaming@2.15.1/dist/videojs-http-streaming.min.js"></script>
-
     <script>
+        let urlParams = "";
+        let streamId = "";
 
+        let queryString = window.location.search;
+
+        if (queryString != null) {
+            urlParams = new URLSearchParams(queryString);
+            streamId = urlParams.get('id');
+        }
+
+
+        let replacement = "https://customer-z44n8lqllcqnve2e.cloudflarestream.com/" + streamId + "/manifest/video.m3u8"
+
+        document.getElementById("source").src = replacement;
     </script>
+
+    <script src="https://vjs.zencdn.net/8.0.4/video.min.js"></script>
 </body>
 
 </html>
